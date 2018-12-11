@@ -84,13 +84,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onContextItemSelected(MenuItem item) {
 
-        TextView tvid= findViewById(R.id.tvkode_parkir);
-        String id=item.getTitle().toString();
+        String id= item.getTitle().toString();
         switch (item.getItemId()){
             case 121:
                 Intent i = new
                         Intent(getApplicationContext(), EditParkiran.class);
-                i.putExtra("id", id);
+                i.putExtra("id", id.substring(10,15));
+//                i.putExtra("nama",);
                 startActivity(i);
                 break;
         }

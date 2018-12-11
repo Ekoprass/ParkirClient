@@ -33,7 +33,10 @@ public class TambahParkiran extends AppCompatActivity {
         btInsert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Call<PostPutDelParkiran> postParkiranCall = mApiInterface.postParkiran(edtKode.getText().toString(),edtNama.getText().toString(), Integer.parseInt(edtKapasitas.getText().toString()));
+                Call<PostPutDelParkiran> postParkiranCall = mApiInterface.postParkiran(
+                        edtKode.getText().toString(),
+                        edtNama.getText().toString(),
+                        Integer.parseInt(edtKapasitas.getText().toString()));
                 postParkiranCall.enqueue(new Callback<PostPutDelParkiran>() {
                     @Override
                     public void onResponse(Call<PostPutDelParkiran> call, Response<PostPutDelParkiran> response) {

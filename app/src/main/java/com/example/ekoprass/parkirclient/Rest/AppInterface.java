@@ -19,13 +19,14 @@ public interface AppInterface {
     Call<GetParkiran> getParkiran();
     @FormUrlEncoded
     @POST("parkiran")
-    Call<PostPutDelParkiran> postParkiran(@Field("kode_parkiran") String kode_parkiran
-                                        ,@Field("nama_parkiran") String nama_parkiran,
+    Call<PostPutDelParkiran> postParkiran(@Field("kode_parkiran") String kode_parkiran,
+                                          @Field("nama_parkiran") String nama_parkiran,
                                         @Field("kapasitas") int kapasitas);
     @FormUrlEncoded
     @PUT("parkiran")
-    Call<PostPutDelParkiran> putParkiran(@Field("nama_parkiran") String nama_parkiran,
-                                     @Field("kapasitas") int kapasitas);
+    Call<PostPutDelParkiran> putParkiran(@Field("kode_parkiran") String kode_parkiran,
+                                         @Field("nama_parkiran") String nama_parkiran,
+                                        @Field("kapasitas") int kapasitas);
     @FormUrlEncoded
     @HTTP(method = "DELETE", path = "parkiran", hasBody = true)
     Call<PostPutDelParkiran> deleteParkiran(@Field("kode_parkiran") String kode_parkiran);

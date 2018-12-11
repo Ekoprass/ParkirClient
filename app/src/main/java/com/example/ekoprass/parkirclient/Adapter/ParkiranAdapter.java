@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.ekoprass.parkirclient.EditParkiran;
 import com.example.ekoprass.parkirclient.Model.Parkiran;
 import com.example.ekoprass.parkirclient.R;
 
@@ -38,16 +39,16 @@ public class ParkiranAdapter extends RecyclerView.Adapter<ParkiranAdapter.MyView
         holder.mTextViewId.setText("Id = " + mParkiranList.get(position).getId());
         holder.mTextViewNama.setText("Nama = " + mParkiranList.get(position).getNama());
         holder.mTextViewNomor.setText("Kapasitas = " + mParkiranList.get(position).getNomor());
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent mIntent = new Intent(view.getContext(), EditActivity.class);
-//                mIntent.putExtra("Id", mParkiranList.get(position).getId());
-//                mIntent.putExtra("Nama", mParkiranList.get(position).getNama());
-//                mIntent.putExtra("Kapasitas", mParkiranList.get(position).getNomor());
-//                view.getContext().startActivity(mIntent);
-//            }
-//        });
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent mIntent = new Intent(view.getContext(), EditParkiran.class);
+                mIntent.putExtra("Id", mParkiranList.get(position).getId());
+                mIntent.putExtra("Nama", mParkiranList.get(position).getNama());
+                mIntent.putExtra("Kapasitas", mParkiranList.get(position).getNomor());
+                view.getContext().startActivity(mIntent);
+            }
+        });
     }
 
     @Override
@@ -70,9 +71,8 @@ public class ParkiranAdapter extends RecyclerView.Adapter<ParkiranAdapter.MyView
 
         @Override
         public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-            menu.add(this.getAdapterPosition(), 121,0,"Edit "+mTextViewId.getText().toString());
-            menu.add(this.getAdapterPosition(), 122,1,"Transaksi Parkir");
-            menu.add(this.getAdapterPosition(), 123,2,"Laporan Transaksi");
+            menu.add(this.getAdapterPosition(), 122,0,"Transaksi Parkir "+mTextViewId.getText().toString());
+            menu.add(this.getAdapterPosition(), 123,1,"Laporan Transaksi "+mTextViewId.getText().toString());
         }
     }
 }
