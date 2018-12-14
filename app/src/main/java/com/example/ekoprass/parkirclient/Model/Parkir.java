@@ -34,7 +34,6 @@ public class Parkir {
     public String getId() {
         return no_karcis;
     }
-
     public void setId(String no_karcis) {
         this.no_karcis = no_karcis;
     }
@@ -42,7 +41,6 @@ public class Parkir {
     public String getWaktu_masuk() {
         return waktu_masuk;
     }
-
     public void setWaktu_masuk(String waktu_masuk) {
         this.waktu_masuk = waktu_masuk;
     }
@@ -50,28 +48,27 @@ public class Parkir {
     public String getWaktu_keluar() {
         return waktu_keluar;
     }
-
     public void setWaktu_keluar(String waktu_keluar) {
         this.waktu_keluar = waktu_keluar;
     }
+
     public String getPlat_nomor() {
         return plat_nomor;
     }
-
     public void setPlat_nomor(String plat_nomor) {
         this.plat_nomor = plat_nomor;
     }
+
     public String getKode_parkiran() {
         return kode_parkiran;
     }
-
     public void setKode_parkiran(String kode_parkiran) {
         this.kode_parkiran =kode_parkiran;
     }
+
     public String getStatus() {
         return status;
     }
-
     public void setStatus(String status) {
         this.status = status;
     }

@@ -2,17 +2,15 @@ package com.example.ekoprass.parkirclient.Model;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
-
 /**
- * Created by Ekoprass on 11/12/2018.
+ * Created by Ekoprass on 13/12/2018.
  */
 
-public class GetParkir {
+public class PostPutDelTransaksi {
     @SerializedName("status")
     String status;
     @SerializedName("result")
-    List<Parkir> listDataParkir;
+    Transaksi mTransaksi;
     @SerializedName("message")
     String message;
     public String getStatus() {
@@ -27,10 +25,10 @@ public class GetParkir {
     public void setMessage(String message) {
         this.message = message;
     }
-    public List<Parkir> getListDataParkir() {
-        return listDataParkir;
+    public Transaksi getTransaksi() {
+        return mTransaksi;
     }
-    public void setListDataParkir(List<Parkir> listDataParkir) {
-        this.listDataParkir = listDataParkir;
+    public void setmTransaksi(Transaksi transaksi) {
+        mTransaksi = transaksi;
     }
 }

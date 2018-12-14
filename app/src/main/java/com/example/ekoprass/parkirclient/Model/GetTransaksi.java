@@ -5,14 +5,14 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 /**
- * Created by Ekoprass on 11/12/2018.
+ * Created by Ekoprass on 13/12/2018.
  */
 
-public class GetParkir {
+public class GetTransaksi {
     @SerializedName("status")
     String status;
     @SerializedName("result")
-    List<Parkir> listDataParkir;
+    List<Transaksi> listDataTransaksi;
     @SerializedName("message")
     String message;
     public String getStatus() {
@@ -27,10 +27,10 @@ public class GetParkir {
     public void setMessage(String message) {
         this.message = message;
     }
-    public List<Parkir> getListDataParkir() {
-        return listDataParkir;
+    public List<Transaksi> getListDataParkiran() {
+        return listDataTransaksi;
     }
-    public void setListDataParkir(List<Parkir> listDataParkir) {
-        this.listDataParkir = listDataParkir;
+    public void setListDataParkiran(List<Transaksi> listDataParkiran) {
+        this.listDataTransaksi = listDataParkiran;
     }
 }

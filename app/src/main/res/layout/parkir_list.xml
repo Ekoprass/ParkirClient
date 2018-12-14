@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:id="@+id/dataContent">
+        <TextView
+            android:id="@+id/tvNo_karcis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Id"
+            android:layout_alignParentRight="true"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/tvPlatNomor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Plat Nomor"
+            android:layout_below="@id/tvNo_karcis"
+            android:textSize="15sp"
+            />
+        <TextView
+            android:id="@+id/tvWaktuMasuk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Waktu Masuk"
+            android:textSize="15sp"
+            android:layout_below="@id/tvPlatNomor"
+            />
+    </RelativeLayout>
+    <View
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"/>
+</LinearLayout>

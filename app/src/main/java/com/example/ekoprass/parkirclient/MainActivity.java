@@ -1,5 +1,7 @@
 package com.example.ekoprass.parkirclient;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -84,13 +86,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onContextItemSelected(MenuItem item) {
 
-        String id= item.getTitle().toString();
+
         switch (item.getItemId()){
-            case 121:
-                Intent i = new
-                        Intent(getApplicationContext(), EditParkiran.class);
-                i.putExtra("id", id.substring(10,15));
-//                i.putExtra("nama",);
+            case 122:
+                Intent i = new Intent(getApplicationContext(), KendaraanParkir.class);
+                String id= item.getTitle().toString();
+                String kodeId=id.substring(22);
+                Log.d("kodeID", "onContextItemSelected: "+kodeId);
+                i.putExtra("kodeID",kodeId);
+
                 startActivity(i);
                 break;
         }
