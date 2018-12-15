@@ -58,7 +58,7 @@ public class ParkiranAdapter extends RecyclerView.Adapter<ParkiranAdapter.MyView
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener {
         public TextView mTextViewId, mTextViewNama, mTextViewNomor;
-        public RelativeLayout dataContent;
+        public LinearLayout dataContent;
 
         public MyViewHolder(View itemView) {
             super(itemView);

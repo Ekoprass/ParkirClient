@@ -42,23 +42,28 @@ public class EditParkiran extends AppCompatActivity {
         btUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Call updateParkiranCall = mApiInterface.putParkiran(
-                        edtId.getText().toString(),
-                        edtNama.getText().toString(),
-                        Integer.parseInt(edtNomor.getText().toString()));
-                updateParkiranCall.enqueue(new Callback() {
-                    @Override
-                    public void onResponse(Call call, Response response) {
-                        MainActivity.ma.refresh();
-                        finish();
-                    }
+                if( edtNama.getText().toString().trim().equals("")||edtNomor.getText().toString().trim().equals("")) {
+                    edtNama.setError("Masukkan Nama Tempat Parkir");
+                    edtNomor.setError("Masukkan Kapasitas");
+                }else {
+                    Call updateParkiranCall = mApiInterface.putParkiran(
+                            edtId.getText().toString(),
+                            edtNama.getText().toString(),
+                            Integer.parseInt(edtNomor.getText().toString()));
+                    updateParkiranCall.enqueue(new Callback() {
+                        @Override
+                        public void onResponse(Call call, Response response) {
+                            MainActivity.ma.refresh();
+                            finish();
+                        }
 
-                    @Override
-                    public void onFailure(Call call, Throwable t) {
-                        Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
-                        Log.e("Retrofit Get", t.toString());
-                    }
-                });
+                        @Override
+                        public void onFailure(Call call, Throwable t) {
+                            Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
+                            Log.e("Retrofit Get", t.toString());
+                        }
+                    });
+                }
             }
         });
         btDelete = (Button) findViewById(R.id.btDelete);

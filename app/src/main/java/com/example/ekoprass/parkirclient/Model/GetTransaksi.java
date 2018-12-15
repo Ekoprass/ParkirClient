@@ -27,10 +27,10 @@ public class GetTransaksi {
     public void setMessage(String message) {
         this.message = message;
     }
-    public List<Transaksi> getListDataParkiran() {
+    public List<Transaksi> getListDataTransaksi() {
         return listDataTransaksi;
     }
-    public void setListDataParkiran(List<Transaksi> listDataParkiran) {
-        this.listDataTransaksi = listDataParkiran;
+    public void setListDataTransaksi(List<Transaksi> listDataTransaksi) {
+        this.listDataTransaksi = listDataTransaksi;
     }
 }

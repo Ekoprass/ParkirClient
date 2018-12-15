@@ -13,11 +13,11 @@ public class Parkiran {
         @SerializedName("nama_parkiran")
         private String nama_parkiran;
         @SerializedName("kapasitas")
-        private int kapasitas;
+        private String kapasitas;
 
         public Parkiran(){}
 
-        public Parkiran(String kode_parkiran, String nama_parkiran, int kapasitas) {
+        public Parkiran(String kode_parkiran, String nama_parkiran, String kapasitas) {
             this.kode_parkiran = kode_parkiran;
             this.nama_parkiran = nama_parkiran;
             this.kapasitas = kapasitas;
@@ -39,11 +39,11 @@ public class Parkiran {
             this.nama_parkiran = nama_parkiran;
         }
 
-        public int getNomor() {
+        public String getNomor() {
             return kapasitas;
         }
 
-        public void setNomor(int kapasitas) {
+        public void setNomor(String kapasitas) {
             this.kapasitas = kapasitas;
         }
 }

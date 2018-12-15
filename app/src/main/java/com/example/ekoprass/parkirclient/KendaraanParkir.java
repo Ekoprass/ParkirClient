@@ -77,23 +77,28 @@ public class KendaraanParkir extends AppCompatActivity {
         btIns.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Call<PostPutDelParkir> postParkirCall = mApiInterface.postParkir(
-                        edtPlat.getText().toString()+"-"+date+"-"+time,
-                        edtPlat.getText().toString(),
-                        tvWaktuMasuk.getText().toString(),
-                        mIntent.getStringExtra("kodeID"),
-                        "1");
-                         postParkirCall.enqueue(new Callback<PostPutDelParkir>() {
-                    @Override
-                    public void onResponse(Call<PostPutDelParkir> call, Response<PostPutDelParkir> response) {
-                        KendaraanParkir.ma.refresh();
-                        finish();
-                    }
-                    @Override
-                    public void onFailure(Call<PostPutDelParkir> call, Throwable t) {
-                        Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
-                    }
-                });
+                if( edtPlat.getText().toString().trim().equals("")) {
+                    edtPlat.setError("Masukkan Plat Nomor");
+                }else {
+                    Call<PostPutDelParkir> postParkirCall = mApiInterface.postParkir(
+                            edtPlat.getText().toString() + "-" + date + "-" + time,
+                            edtPlat.getText().toString(),
+                            tvWaktuMasuk.getText().toString(),
+                            mIntent.getStringExtra("kodeID"),
+                            "1");
+                    postParkirCall.enqueue(new Callback<PostPutDelParkir>() {
+                        @Override
+                        public void onResponse(Call<PostPutDelParkir> call, Response<PostPutDelParkir> response) {
+                            KendaraanParkir.ma.refresh();
+                            finish();
+                        }
+
+                        @Override
+                        public void onFailure(Call<PostPutDelParkir> call, Throwable t) {
+                            Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
             }});
 
 

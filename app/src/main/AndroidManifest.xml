@@ -24,7 +24,7 @@
         <activity android:name=".EditParkiran" />
         <activity android:name=".KendaraanParkir" />
         <activity android:name=".KeluarParkiran" />
-        <activity android:name=".Transaksi"></activity>
+        <activity android:name=".TransaksiAct"></activity>
     </application>
 
 </manifest>

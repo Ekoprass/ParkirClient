@@ -32,14 +32,31 @@
             android:layout_height="wrap_content"
             android:hint="Kode Parkir"
             android:textSize="15sp"
+            android:layout_below="@id/tvPlat"
             android:textStyle="bold"
             />
         <TextView
-            android:id="@+id/tvBiaya"
+            android:id="@+id/tvWaktu_Masuk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Waktu Masuk"
+            android:textSize="15sp"
+            android:layout_below="@id/tvKodeParkiran"
+            />
+        <TextView
+            android:id="@+id/tvWaktu_Keluar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Waktu Keluar"
+            android:textSize="15sp"
+            android:layout_below="@id/tvWaktu_Masuk"
+            />
+        <TextView
+            android:id="@+id/tvBiayaparkir"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Biaya"
-            android:layout_below="@+id/tvKodeParkiran"
+            android:layout_below="@+id/tvWaktu_Keluar"
             android:textSize="15sp"
             />
     </RelativeLayout>

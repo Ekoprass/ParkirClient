@@ -5,6 +5,7 @@ package com.example.ekoprass.parkirclient.Rest;
  */
 import com.example.ekoprass.parkirclient.Model.GetParkir;
 import com.example.ekoprass.parkirclient.Model.GetParkiran;
+import com.example.ekoprass.parkirclient.Model.GetTransaksi;
 import com.example.ekoprass.parkirclient.Model.PostPutDelParkir;
 import com.example.ekoprass.parkirclient.Model.PostPutDelParkiran;
 import com.example.ekoprass.parkirclient.Model.PostPutDelTransaksi;
@@ -59,5 +60,8 @@ public interface AppInterface {
     @POST("transaksi")
     Call<PostPutDelTransaksi> postTransaksi(@Field("no_karcis") String no_karcis,
                                             @Field("biaya") String biaya);
+
+    @GET("transaksi")
+    Call<GetTransaksi> getTransaksi(@Query("kode_parkiran") String kode_parkiran);
 
 }

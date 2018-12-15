@@ -1,24 +1,16 @@
 package com.example.ekoprass.parkirclient;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.ekoprass.parkirclient.Adapter.ParkiranAdapter;
 import com.example.ekoprass.parkirclient.Model.GetParkiran;
@@ -94,8 +86,17 @@ public class MainActivity extends AppCompatActivity {
                 String kodeId=id.substring(22);
                 Log.d("kodeID", "onContextItemSelected: "+kodeId);
                 i.putExtra("kodeID",kodeId);
-
                 startActivity(i);
+                break;
+
+            case 123:
+                Intent t = new Intent(getApplicationContext(), TransaksiAct.class);
+                String kode= item.getTitle().toString();
+                String kode_Id=kode.substring(23);
+                Log.d("kodeID", "onContextItemSelected: "+kode_Id);
+                t.putExtra("kodeID",kode_Id);
+
+                startActivity(t);
                 break;
         }
         return super.onContextItemSelected(item);
