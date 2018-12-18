@@ -73,6 +73,7 @@ public class ParkiranAdapter extends RecyclerView.Adapter<ParkiranAdapter.MyView
         public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
             menu.add(this.getAdapterPosition(), 122,0,"Transaksi Parkir "+mTextViewId.getText().toString());
             menu.add(this.getAdapterPosition(), 123,1,"Laporan Transaksi "+mTextViewId.getText().toString());
+            menu.add(this.getAdapterPosition(), 124,1,"Lokasi Parkir ");
         }
     }
 }

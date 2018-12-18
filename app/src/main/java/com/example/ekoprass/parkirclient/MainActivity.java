@@ -2,6 +2,8 @@ package com.example.ekoprass.parkirclient;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -33,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     public static MainActivity ma;
+    SessionManagement sm;
+
 
 
     @Override
@@ -40,13 +44,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btIns = (Button) findViewById(R.id.btIns);
-        btIns.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, TambahParkiran.class));
-            }
-        });
+        sm = new SessionManagement(this);
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
@@ -56,6 +54,34 @@ public class MainActivity extends AppCompatActivity {
         refresh();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.navigation,menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case R.id.btLogout:
+                sm.logoutUser();
+
+                // After logout redirect user to Loing Activity
+                Intent i = new Intent(getApplicationContext(), Login.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(i);
+
+                break;
+
+            case R.id.btIns:
+                startActivity(new Intent(MainActivity.this, TambahParkiran.class));
+                break;
+        }
+        return false;
+    }
     public void refresh() {
         Call<GetParkiran> ParkiranCall = mApiInterface.getParkiran();
         ParkiranCall.enqueue(new Callback<GetParkiran>() {
@@ -95,8 +121,11 @@ public class MainActivity extends AppCompatActivity {
                 String kode_Id=kode.substring(23);
                 Log.d("kodeID", "onContextItemSelected: "+kode_Id);
                 t.putExtra("kodeID",kode_Id);
-
                 startActivity(t);
+                break;
+            case 124:
+                Intent m = new Intent(getApplicationContext(), MapsActivity.class);
+                startActivity(m);
                 break;
         }
         return super.onContextItemSelected(item);
