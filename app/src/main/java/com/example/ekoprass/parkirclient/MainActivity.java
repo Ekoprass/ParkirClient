@@ -13,6 +13,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.ekoprass.parkirclient.Adapter.ParkiranAdapter;
 import com.example.ekoprass.parkirclient.Model.GetParkiran;
@@ -28,8 +29,8 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView mTextMessage;
-    Button btIns;
+    private TextView mTextMessage, tvError;
+    Button btIns, btRefresh;
     AppInterface mApiInterface;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        tvError=(TextView)findViewById(R.id.tvError);
 
         sm = new SessionManagement(this);
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
@@ -79,6 +81,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btIns:
                 startActivity(new Intent(MainActivity.this, TambahParkiran.class));
                 break;
+
+            case R.id.btRefresh:
+                refresh();
+                break;
         }
         return false;
     }
@@ -92,11 +98,15 @@ public class MainActivity extends AppCompatActivity {
                         String.valueOf(ParkiranList.size()));
                 mAdapter = new ParkiranAdapter(ParkiranList);
                 mRecyclerView.setAdapter(mAdapter);
+                tvError.setText("");
             }
 
             @Override
             public void onFailure(Call<GetParkiran> call, Throwable t) {
                 Log.e("Retrofit Get", t.toString());
+                tvError.setText("Gagal Tersambung, Periksa Server!");
+                Toast.makeText(MainActivity.this,"Gagal Tersambung Periksa Server", Toast.LENGTH_SHORT).show();
+
             }
         });
     }

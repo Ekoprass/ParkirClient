@@ -34,11 +34,11 @@ public class TransaksiAdapter extends RecyclerView.Adapter<TransaksiAdapter.MyVi
 
     @Override
     public void onBindViewHolder(TransaksiAdapter.MyViewHolder holder, final int position) {
-        holder.mTextViewId.setText(mTransaksiList.get(position).getId());
-        holder.mTextViewPlat.setText("Nomor Karcis = " + mTransaksiList.get(position).getPlat_nomor());
-        holder.mTextViewMasuk.setText("Biaya = " + mTransaksiList.get(position).getMasuk());
-        holder.mTextViewKeluar.setText("Biaya = " + mTransaksiList.get(position).getKeluar());
-        holder.mTextViewKode.setText("Biaya = " + mTransaksiList.get(position).getKode_parkiran());
+        holder.mTextViewId.setText(mTransaksiList.get(position).getNo_karcis());
+        holder.mTextViewPlat.setText("Nomor Plat = " + mTransaksiList.get(position).getPlat_nomor());
+        holder.mTextViewMasuk.setText("Waktu Masuk = " + mTransaksiList.get(position).getMasuk());
+        holder.mTextViewKeluar.setText("Waktu Keluar = " + mTransaksiList.get(position).getKeluar());
+        holder.mTextViewKode.setText("Kode Parkiran = " + mTransaksiList.get(position).getKode_parkiran());
         holder.mTextViewBiaya.setText("Biaya = " + mTransaksiList.get(position).getBiaya());
     }
 

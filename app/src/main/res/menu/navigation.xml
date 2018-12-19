@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/btRefresh"
+        android:icon="@drawable/ic_autorenew_black_24dp"
+        android:title="Item"
+        android:visible="true"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/btIns"
         android:icon="@drawable/ic_add_black_24dp"
         android:title="Item"
@@ -16,5 +22,4 @@
         app:showAsAction="always" />
 
 
-
-</menu>
+    </menu>

@@ -7,7 +7,7 @@
     tools:context="com.example.ekoprass.parkirclient.EditParkiran"
     android:orientation="vertical"
     android:padding="10dp"
-    android:layout_margin="10dp">
+    android:background="#c7f9e2">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,12 +17,15 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="Kode Parkiran  "
-            android:textSize="20sp"/>
+            app:fontFamily="@font/baumans"
+            android:textSize="20sp"
+            />
         <EditText
             android:id="@+id/edtKode"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
+            app:fontFamily="@font/baumans"
             android:hint="Kode Parkiran"/>
     </LinearLayout>
 
@@ -33,12 +36,14 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
+            app:fontFamily="@font/baumans"
             android:text="Nama Parkiran"
             android:textSize="20sp"/>
         <EditText
             android:id="@+id/edtNama"
             android:layout_width="0dp"
             android:layout_weight="1"
+            app:fontFamily="@font/baumans"
             android:layout_height="wrap_content"
             android:hint="Nama"/>
     </LinearLayout>
@@ -50,6 +55,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
+            app:fontFamily="@font/baumans"
             android:text="Kapasitas "
             android:textSize="20sp"/>
 
@@ -58,6 +64,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
+            app:fontFamily="@font/baumans"
             android:hint="Kapasitas"/>
     </LinearLayout>
 
@@ -77,7 +84,8 @@
             android:textColor="#fff"
             android:background="@color/colorPrimary"
             android:layout_marginRight="5dp"
-            android:padding="3dp"/>
+            android:padding="3dp"
+            app:fontFamily="@font/baumans"/>
         <Button
             android:id="@+id/btDelete"
             android:layout_width="0dp"
@@ -85,7 +93,8 @@
             android:layout_height="wrap_content"
             android:text="Delete"
             android:textColor="#fff"
-            android:background="@color/colorDanger"/>
+            android:background="@color/colorDanger"
+            app:fontFamily="@font/baumans"/>
         <Button
             android:id="@+id/btBackGo"
             android:layout_width="0dp"
@@ -94,6 +103,7 @@
             android:layout_height="wrap_content"
             android:text="Kembali"
             android:textColor="#fff"
-            android:background="@color/colorDanger"/>
+            android:background="@color/colorDanger"
+            app:fontFamily="@font/baumans"/>
     </LinearLayout>
 </LinearLayout>
