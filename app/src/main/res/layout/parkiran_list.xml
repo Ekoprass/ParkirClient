@@ -14,7 +14,7 @@
             android:id="@+id/tvkode_parkir"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Id"
+            android:hint="@string/id"
             android:layout_alignParentRight="true"
             android:textSize="15sp"
             android:textStyle="bold"
@@ -23,7 +23,7 @@
             android:id="@+id/tvNama"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Nama"
+            android:hint="@string/nama"
             android:layout_below="@id/tvkode_parkir"
             android:textSize="15sp"
             />
@@ -31,7 +31,7 @@
             android:id="@+id/tvKapasitas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Kapasitas"
+            android:hint="@string/kapasitas"
             android:textSize="15sp"
             android:layout_below="@id/tvNama"
             />

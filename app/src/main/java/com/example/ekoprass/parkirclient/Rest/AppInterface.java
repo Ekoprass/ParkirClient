@@ -20,7 +20,7 @@ import retrofit2.http.PUT;
 import retrofit2.http.Query;
 
 public interface AppInterface {
-    // Aksi data tempat parkir
+    // Aksi data tempat parkir=========================================================================
     @GET("parkiran")
     Call<GetParkiran> getParkiran();
     @FormUrlEncoded
@@ -37,8 +37,7 @@ public interface AppInterface {
     @HTTP(method = "DELETE", path = "parkiran", hasBody = true)
     Call<PostPutDelParkiran> deleteParkiran(@Field("kode_parkiran") String kode_parkiran);
 
-    // Aksi data kendaraan parkir
-
+    // Aksi data kendaraan parkir======================================================================
     @GET("parkir")
     Call<GetParkir> getParkir(@Query("kode_parkiran") String kode_parkiran,@Query("status") String status);
     @GET("parkir")
@@ -54,8 +53,8 @@ public interface AppInterface {
     @FormUrlEncoded
     @PUT("parkir")
     Call<PostPutDelParkir> putParkir(@Field("no_karcis") String no_karcis, @Field("waktu_keluar") String waktu_masuk);
-    //Aksi data transaki
 
+    //Aksi data transaki===============================================================================
     @FormUrlEncoded
     @POST("transaksi")
     Call<PostPutDelTransaksi> postTransaksi(@Field("no_karcis") String no_karcis,

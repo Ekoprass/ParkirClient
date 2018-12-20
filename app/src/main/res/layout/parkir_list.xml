@@ -13,7 +13,7 @@
             android:id="@+id/tvNo_karcis"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Id"
+            android:hint="@string/id"
             android:layout_alignParentRight="true"
             android:textSize="15sp"
             android:textStyle="bold"
@@ -22,7 +22,7 @@
             android:id="@+id/tvPlatNomor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Plat Nomor"
+            android:hint="@string/plat_nomor"
             android:layout_below="@id/tvNo_karcis"
             android:textSize="15sp"
             />
@@ -30,7 +30,7 @@
             android:id="@+id/tvWaktuMasuk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Waktu Masuk"
+            android:hint="@string/waktu_masuk"
             android:textSize="15sp"
             android:layout_below="@id/tvPlatNomor"
             />

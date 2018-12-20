@@ -38,7 +38,7 @@ public class TransaksiAct extends AppCompatActivity {
         setContentView(R.layout.activity_transaksi);
 
         btBack = (Button) findViewById(R.id.btBackGo);
-        btBack.setOnClickListener(new View.OnClickListener() {
+        btBack.setOnClickListener(new View.OnClickListener() {     //fungsi tombol untuk kembali ke halaman MainActivity
             @Override
             public void onClick(View v) {
                 MainActivity.ma.refresh();
@@ -46,28 +46,32 @@ public class TransaksiAct extends AppCompatActivity {
             }
         });
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        mLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.setHasFixedSize(true);
-        mApiInterface = AppClient.getClient().create(AppInterface.class);
-        ma=this;
-        refresh();
+        mLayoutManager = new LinearLayoutManager(this);     //mendefinisikan layout recyclerview
+        mRecyclerView.setLayoutManager(mLayoutManager);             //melakukan setlayout recyclerview
+        mRecyclerView.setHasFixedSize(true);                        //recyclerview set fixedsize menjadi true
+        mApiInterface = AppClient.getClient().create(AppInterface.class); //memanggil fungsi getClient() pada class appclient
+        ma=this;       //mendefinisikan activity ini
+        refresh();      //memanggil fungsi refresh
     }
 
     public void refresh() {
         Intent mIntent = getIntent();
+        //memnaggil fungsi getTransaksi pada class appinterface
         Call<GetTransaksi> TransasksiCall = mApiInterface.getTransaksi(mIntent.getStringExtra("kodeID"));
         TransasksiCall.enqueue(new Callback<GetTransaksi>() {
             @Override
+            //fungsi menampilkan respon dari server
             public void onResponse(Call<GetTransaksi> call, Response<GetTransaksi> response) {
+                //mendapatkan list data yang telah di dapat dari server kedalam variabel model transaksi
                 List<com.example.ekoprass.parkirclient.Model.Transaksi> TransaksiList = response.body().getListDataTransaksi();
-                Log.d("Retrofit Get", "Jumlah data Parkiran: " +
-                        String.valueOf(TransaksiList.size()));
-                mAdapter = new TransaksiAdapter(TransaksiList);
-                mRecyclerView.setAdapter(mAdapter);
+                //menampilkan pesan respon dalam log
+                Log.d("Retrofit Get", "Jumlah data Parkiran: " + String.valueOf(TransaksiList.size()));
+                mAdapter = new TransaksiAdapter(TransaksiList); //menampilkasn data kedalam adapter
+                mRecyclerView.setAdapter(mAdapter); //mengeset adapter kedalam recyclerview
             }
 
             @Override
+            //fungsi bila respon yang diterima dari server gagal dan menampilkan nya dalam pesan log
             public void onFailure(Call<GetTransaksi> call, Throwable t) {
                 Log.e("Retrofit Get", t.toString());
             }

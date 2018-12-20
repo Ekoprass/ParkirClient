@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     package="com.example.ekoprass.parkirclient">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -25,9 +26,11 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            app:fontFamily="@font/baumans" >
 
-        </activity>
+
+    </activity>
         <activity android:name=".TambahParkiran" />
         <activity android:name=".EditParkiran" />
         <activity android:name=".KendaraanParkir" />

@@ -33,6 +33,7 @@ public class TransaksiAdapter extends RecyclerView.Adapter<TransaksiAdapter.MyVi
     }
 
     @Override
+    //menampilkan data pada layout list
     public void onBindViewHolder(TransaksiAdapter.MyViewHolder holder, final int position) {
         holder.mTextViewId.setText(mTransaksiList.get(position).getNo_karcis());
         holder.mTextViewPlat.setText("Nomor Plat = " + mTransaksiList.get(position).getPlat_nomor());
@@ -43,6 +44,7 @@ public class TransaksiAdapter extends RecyclerView.Adapter<TransaksiAdapter.MyVi
     }
 
     @Override
+    //mendapatkan jumlah list/row data
     public int getItemCount() {
         return mTransaksiList.size();
     }

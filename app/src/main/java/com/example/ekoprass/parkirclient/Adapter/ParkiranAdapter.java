@@ -35,10 +35,12 @@ public class ParkiranAdapter extends RecyclerView.Adapter<ParkiranAdapter.MyView
     }
 
     @Override
+    //menampilkan data pada layout list
     public void onBindViewHolder (MyViewHolder holder,final int position){
         holder.mTextViewId.setText("Id = " + mParkiranList.get(position).getId());
         holder.mTextViewNama.setText("Nama = " + mParkiranList.get(position).getNama());
         holder.mTextViewNomor.setText("Kapasitas = " + mParkiranList.get(position).getNomor());
+        //memberi intent extra pada saat data di klik akan menuju ke edit parkiran
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,6 +54,7 @@ public class ParkiranAdapter extends RecyclerView.Adapter<ParkiranAdapter.MyView
     }
 
     @Override
+    //mendapatkan jumlah list/row data
     public int getItemCount () {
         return mParkiranList.size();
     }
@@ -69,6 +72,7 @@ public class ParkiranAdapter extends RecyclerView.Adapter<ParkiranAdapter.MyView
             dataContent.setOnCreateContextMenuListener(this);
         }
 
+        //membuat menu saat data di tekan dan tahan maka akan muncul menu list
         @Override
         public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
             menu.add(this.getAdapterPosition(), 122,0,"Transaksi Parkir "+mTextViewId.getText().toString());

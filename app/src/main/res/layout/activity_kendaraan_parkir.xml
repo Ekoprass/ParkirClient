@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/kodeParkiran"
         android:layout_marginTop="10dp"
-        android:text="Kode Tempat Parkir"
+        android:text="@string/kode_tempat_parkir"
         android:textSize="17dp"
         android:textStyle="bold"
         android:textAlignment="center"
@@ -32,7 +32,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Plat Nomor"
+            android:text="@string/plat_nomor"
             android:layout_marginRight="10dp"
             android:textStyle="bold"
             android:textSize="17sp"
@@ -41,7 +41,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Plat Nomor"
+            android:hint="@string/plat_nomor"
             android:id="@+id/edtPlat"
             android:fontFamily="@font/baumans"/>
     </LinearLayout>
@@ -55,7 +55,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Waktu Masuk"
+            android:text="@string/waktu_masuk"
             android:textSize="17dp"
             android:textStyle="bold"
             android:textAlignment="center"
@@ -65,7 +65,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Tambah Data"
+            android:text="@string/tambah_data"
             android:textColor="#fff"
             android:id="@+id/btnTambah"
             android:background="@color/colorPrimary"

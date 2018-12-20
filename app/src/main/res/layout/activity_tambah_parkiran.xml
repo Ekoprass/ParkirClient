@@ -16,7 +16,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Kode Parkiran  "
+            android:text="@string/kode_parkiran"
             android:textSize="20sp"
             app:fontFamily="@font/baumans"/>
         <EditText
@@ -24,7 +24,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:hint="Kode Parkiran"
+            android:hint="@string/kode_parkiran"
             app:fontFamily="@font/baumans"/>
     </LinearLayout>
 
@@ -35,7 +35,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Nama Parkiran"
+            android:text="@string/nama_parkiran"
             android:textSize="20sp"
             app:fontFamily="@font/baumans"/>
         <EditText
@@ -43,7 +43,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:hint="Nama"
+            android:hint="@string/nama"
             app:fontFamily="@font/baumans"/>
     </LinearLayout>
 
@@ -54,7 +54,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Kapasitas "
+            android:text="@string/kapasitas"
             android:textSize="20sp"
             app:fontFamily="@font/baumans"/>
 
@@ -64,7 +64,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:hint="Kapasitas"
+            android:hint="@string/kapasitas"
             app:fontFamily="@font/baumans"/>
     </LinearLayout>
 
@@ -83,7 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:background="@color/colorPrimary"
-            android:text="Tambah Parkiran"
+            android:text="@string/tambah_parkiran"
             android:textColor="#fff"
             android:fontFamily="@font/baumans"/>
 
@@ -92,7 +92,7 @@
             android:layout_width="182dp"
             android:layout_height="wrap_content"
             android:background="@color/colorDanger"
-            android:text="Kembali"
+            android:text="@string/kembali"
             android:textColor="#fff"
             android:fontFamily="@font/baumans"/>
     </LinearLayout>

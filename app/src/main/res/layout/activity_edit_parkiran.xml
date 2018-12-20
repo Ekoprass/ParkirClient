@@ -16,7 +16,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Kode Parkiran  "
+            android:text="@string/kode_parkiran"
             app:fontFamily="@font/baumans"
             android:textSize="20sp"
             />
@@ -37,7 +37,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             app:fontFamily="@font/baumans"
-            android:text="Nama Parkiran"
+            android:text="@string/nama_parkiran"
             android:textSize="20sp"/>
         <EditText
             android:id="@+id/edtNama"
@@ -56,7 +56,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             app:fontFamily="@font/baumans"
-            android:text="Kapasitas "
+            android:text="@string/kapasitas"
             android:textSize="20sp"/>
 
         <EditText
@@ -80,7 +80,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Edit Parkiran"
+            android:text="@string/edit_parkiran"
             android:textColor="#fff"
             android:background="@color/colorPrimary"
             android:layout_marginRight="5dp"
@@ -91,7 +91,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Delete"
+            android:text="@string/delete"
             android:textColor="#fff"
             android:background="@color/colorDanger"
             app:fontFamily="@font/baumans"/>
@@ -101,7 +101,7 @@
             android:layout_weight="1"
             android:layout_marginLeft="5dp"
             android:layout_height="wrap_content"
-            android:text="Kembali"
+            android:text="@string/kembali"
             android:textColor="#fff"
             android:background="@color/colorDanger"
             app:fontFamily="@font/baumans"/>

@@ -33,10 +33,12 @@ public class ParkirAdapter extends RecyclerView.Adapter<ParkirAdapter.MyViewHold
     }
 
     @Override
+    //menampilkan data pada layout list
     public void onBindViewHolder(ParkirAdapter.MyViewHolder holder, final int position) {
         holder.mTextViewId.setText(mParkirList.get(position).getId());
         holder.mTextViewNama.setText("Plat Nomor = " + mParkirList.get(position).getPlat_nomor());
         holder.mTextViewMasuk.setText("Waktu Masuk = " + mParkirList.get(position).getWaktu_masuk());
+        //memberi intent extra pada saat data di klik dan akan menuju transaksi keluar parkiran
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,6 +54,7 @@ public class ParkirAdapter extends RecyclerView.Adapter<ParkirAdapter.MyViewHold
     }
 
     @Override
+    //mendapatkan jumlah list/row data
     public int getItemCount() {
         return mParkirList.size();
     }

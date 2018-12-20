@@ -40,19 +40,22 @@ public class KeluarParkiran extends AppCompatActivity {
         tvBiaya = (TextView) findViewById(R.id.tvBiaya);
         tvDurasi = (TextView) findViewById(R.id.tvDurasi);
 
-
+        //mendapatkan value dari intent extra
         final Intent mIntent = getIntent();
         tvNoKarcis.setText("Nomor Karcis : " +mIntent.getStringExtra("Id"));
         tvPlat.setText("Plat Nomor : "+mIntent.getStringExtra("platnomor"));
         tvMasuk.setText("Waktu Masuk : "+mIntent.getStringExtra("waktuMasuk"));
         tvKode.setText("Kode Tempat Parkir : "+mIntent.getStringExtra("kode_parkiran"));
 
+        //membuat object waktu tanggal dan jam
         Date currentTime = Calendar.getInstance().getTime();
+        //membuat format waktu
         final String Datenow = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(currentTime);
         SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
         tvKeluar.setText("Waktu Keluar : "+Datenow);
 
+        //menghitung selisih waktu masuk dan waktu keluar
         try {
             Date date1 = format.parse(Datenow);
             Date date2 = format.parse(mIntent.getStringExtra("waktuMasuk"));
@@ -62,7 +65,7 @@ public class KeluarParkiran extends AppCompatActivity {
             long hours = minutes / 60;
             long days = hours / 24;
 
-            if (date1.before(date2)) {
+            if (date1.before(date2)) { //menampilkan hasil selisih waktu / durasi lama
 
                 Log.e("oldDate", "is previous date");
                 Log.e("Difference: ", " seconds: " + seconds + " minutes: " + minutes
@@ -70,11 +73,11 @@ public class KeluarParkiran extends AppCompatActivity {
 
             }
             tvDurasi.setText("Lama Parkir : "+ hours+" Jam "+minutes+" Menit ");
-            long Biaya = hours*2000;
+            long Biaya = hours*2000;            // menghirung waktu / durasi dikali biaya per jam 2000
             String myString = Long.toString(Biaya);
             tvBiaya.setText(myString);
 
-        } catch (ParseException e) {
+        } catch (ParseException e) {            // catch exception untuk parsing format waktu
             e.printStackTrace();
         }
 
@@ -83,32 +86,39 @@ public class KeluarParkiran extends AppCompatActivity {
         btExit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //memanggil fungsi upadteParkiran pada AppInterface dengan parameter id dan waktu keluar
                 Call updateParkirCall = mApiInterface.putParkir(
                         mIntent.getStringExtra("Id"),
                         Datenow);
                 updateParkirCall.enqueue(new Callback() {
                     @Override
+                    //mendapatkan respon dari server apakah update berhasil
                     public void onResponse(Call call, Response response) {
                         finish();
                     }
 
                     @Override
+                    //mendapatkan respon dari server apakah update gagal
                     public void onFailure(Call call, Throwable t) {
                         Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
                         Log.e("Retrofit Get", t.toString());
                     }
                 });
+
+                ////memanggil fungsi postTransaksi pada AppInterface dengan parameter id dan biaya
                 Call postTransaksiCall = mApiInterface.postTransaksi(
                         mIntent.getStringExtra("Id"),
                         tvBiaya.getText().toString());
                 postTransaksiCall.enqueue(new Callback() {
                     @Override
+                    //mendapatkan respon dari server apakah Insert berhasil
                     public void onResponse(Call call, Response response) {
                         KendaraanParkir.ma.refresh();
                         finish();
                     }
 
                     @Override
+                    //mendapatkan respon dari server apakah Insert gagal
                     public void onFailure(Call call, Throwable t) {
                         Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
                         Log.e("Retrofit Get", t.toString());
@@ -117,6 +127,7 @@ public class KeluarParkiran extends AppCompatActivity {
             }
         });
 
+        //fungsi tombol back untu kembali ke halaman Kendaraanparkir
         btBack = (Button) findViewById(R.id.btBackGo);
         btBack.setOnClickListener(new View.OnClickListener() {
             @Override

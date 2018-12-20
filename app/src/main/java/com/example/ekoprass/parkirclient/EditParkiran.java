@@ -42,22 +42,26 @@ public class EditParkiran extends AppCompatActivity {
         btUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //pengecekan apakah form kosong/tidak diisi maka akan muncul pesan error
                 if( edtNama.getText().toString().trim().equals("")||edtNomor.getText().toString().trim().equals("")) {
                     edtNama.setError("Masukkan Nama Tempat Parkir");
                     edtNomor.setError("Masukkan Kapasitas");
                 }else {
+                    //memanggil fungsi updateparkiran pada AppInterface dengan parameter id,nama_parkiran,dan kapasitas
                     Call updateParkiranCall = mApiInterface.putParkiran(
                             edtId.getText().toString(),
                             edtNama.getText().toString(),
                             Integer.parseInt(edtNomor.getText().toString()));
                     updateParkiranCall.enqueue(new Callback() {
                         @Override
+                        //mendapatkan respon dari server apakah update berhasil
                         public void onResponse(Call call, Response response) {
                             MainActivity.ma.refresh();
                             finish();
                         }
 
                         @Override
+                        //mendapatkan respon dari server apakah update gagal
                         public void onFailure(Call call, Throwable t) {
                             Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
                             Log.e("Retrofit Get", t.toString());
@@ -66,20 +70,24 @@ public class EditParkiran extends AppCompatActivity {
                 }
             }
         });
+        //fungsi tombol delete
         btDelete = (Button) findViewById(R.id.btDelete);
         btDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (edtId.getText().toString().trim().isEmpty()==false){
+                    //memanggil fungsi deleteparkir pada AppInterface dengan parameter id
                     Call deleteParkiran = mApiInterface.deleteParkiran(edtId.getText().toString());
                     deleteParkiran.enqueue(new Callback() {
                         @Override
+                        //mendapatkan respon dari server apakah delete berhasil
                         public void onResponse(Call call, Response response) {
                             MainActivity.ma.refresh();
                             finish();
                         }
 
                         @Override
+                        //mendapatkan respon dari server apakah delete gagal
                         public void onFailure(Call call, Throwable t) {
                             Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
                             Log.e("Retrofit Get", t.toString());
@@ -90,6 +98,7 @@ public class EditParkiran extends AppCompatActivity {
                 }
             }
         });
+        //fungsi tombol back untu kembali ke halaman mainactivity
         btBack = (Button) findViewById(R.id.btBackGo);
         btBack.setOnClickListener(new View.OnClickListener() {
             @Override
